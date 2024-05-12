@@ -1,0 +1,10 @@
+# docker compose version
+version: '3.8'
+
+services:
+  warehouse-service:
+    build:
+      context: .
+      target: development
+      dockerfile: ./Dockerfile
+    command: npm run start:dev
