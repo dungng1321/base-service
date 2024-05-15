@@ -35,7 +35,7 @@ async function bootstrap() {
     transport: Transport.RMQ,
     options: {
       urls: ['amqp://rabbitmq:5672'],
-      exchange: 'app_exchange',
+      exchange: 'amq.topic',
       exchangeType: 'topic',
       routingKey: 'rabbitmq-base.*',
       queue: 'warehouse_service_queue',
@@ -45,16 +45,16 @@ async function bootstrap() {
       noAck: false,
     },
   });
-  // app.connectMicroservice(
-  //   {
-  //     transport: Transport.NATS,
-  //     options: {
-  //       servers: NatsConfig().servers,
-  //       queue: NatsConfig().authService,
-  //     },
-  //   },
-  //   { inheritAppConfig: true },
-  // );
+  app.connectMicroservice(
+    {
+      transport: Transport.NATS,
+      options: {
+        servers: NatsConfig().servers,
+        queue: NatsConfig().baseService,
+      },
+    },
+    { inheritAppConfig: true },
+  );
 
   await app.startAllMicroservices();
 
@@ -71,7 +71,7 @@ async function bootstrap() {
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api/v1/warehouses/swagger-docs', app, document);
+  SwaggerModule.setup('api/v1/bases/swagger-docs', app, document);
 
   app.useGlobalPipes(new SortQueryPipe());
   app.useGlobalPipes(new FilterQueryPipe());

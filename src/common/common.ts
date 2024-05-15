@@ -1,3 +1,3 @@
 export enum APIPrefix {
-  Version = 'api/v1/warehouses',
+  Version = 'api/v1/bases',
 }

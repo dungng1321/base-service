@@ -3,7 +3,7 @@ import 'dotenv/config';
 
 export const NatsConfig = registerAs('nats', () => ({
   servers: process.env.NATS_SERVERS?.split(',') || ['nats://nats:4222'],
-  authService: process.env.NATS_AUTH_SERVICE || 'auth_service',
+  baseService: process.env.NATS_AUTH_SERVICE || 'base_service',
 }));
 
 export const NATS_USER = process.env.NATS_USER_SERVICE || 'user_service';

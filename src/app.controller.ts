@@ -52,8 +52,17 @@ export class AppController {
     });
   }
 
-  @Get('test-ne')
+  @Get('test')
   async testNE(): Promise<any> {
     return await this.appService.testNE();
+  }
+
+  // @EventPattern('rabbitmq-base.test')
+  @MessagePattern('rabbitmq-base.test')
+  testRabbitMQ(@Body() data: any) {
+    console.log('data', data);
+    return new ResponseBuilder()
+      .withData({ msg: 'rabbitmq-base: pong', data })
+      .build();
   }
 }

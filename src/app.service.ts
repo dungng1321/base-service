@@ -30,7 +30,7 @@ export class AppService {
       age: 20,
     };
     console.log('data', data);
-    const result = await this.rabbitMQClientService.emit(
+    const result = await this.rabbitMQClientService.send(
       'rabbitmq-base.test',
       data,
     );

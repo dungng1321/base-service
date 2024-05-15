@@ -19,7 +19,7 @@ services:
       - .:/app
       - /app/node_modules
     restart: unless-stopped
-  warehouse-migration:
+  rabbitmq-base-migration:
     image: rabbitmq-base
     env_file:
       - .env

@@ -42,3 +42,5 @@ const connectionOptions = new DataSource({
 connectionOptions.initialize();
 
 export default connectionOptions;
+
+

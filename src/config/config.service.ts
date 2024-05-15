@@ -16,6 +16,7 @@ export class ConfigService {
       port: process.env.SERVER_PORT,
       httpPort: process.env.SERVER_HTTP_PORT,
       natServers: process.env.NAT_SERVERS?.split(',') || ['nats://nats:4222'],
+      rabbitSevers : ['rabbitmq://rabbitmq:5672'],
       otpMinNumber: parseInt(process.env.OTP_MIN_NUMBER),
       otpMaxNumber: parseInt(process.env.OTP_MAX_NUMBER),
       otpTimeout: parseInt(process.env.OTP_TIME_OUT),
@@ -30,13 +31,13 @@ export class ConfigService {
       process.env.INTERNAL_TOKEN ||
       't5AQ1il1FtOk6Pp9FEW0VbwYETYqqseisgvo0ZCchayvvsQYFSkNzP7bNZ7vEFr0B1Hd4Ft3KGls1q2Irc20Yv1juslgTgtP4lavfeFiw7qBDDzw5D5Y7vMxoIfkpEqcViZqcPy3K2TCOqzCVGAQjJ4bvmX01xeCqILT5ewBd7fL3hZ4jBlSYmbiIefVIiRzeFhWCYOuVpS4Ng4lPcEBvUorm5zlLAci65UKdKtoXbPtWp2A1jrE5D';
 
-    this.envConfig.warehouseService = {
-      options: {
-        port: process.env.WAREHOUSE_SERVICE_PORT || 3000,
-        host: process.env.WAREHOUSE_SERVICE_HOST || 'rabbitmq-base',
-      },
-      transport: Transport.TCP,
-    };
+    // this.envConfig.warehouseService = {
+    //   options: {
+    //     port: process.env.WAREHOUSE_SERVICE_PORT || 3000,
+    //     host: process.env.WAREHOUSE_SERVICE_HOST || 'rabbitmq-base',
+    //   },
+    //   transport: Transport.TCP,
+    // };
   }
 
   get(key: string): any {
