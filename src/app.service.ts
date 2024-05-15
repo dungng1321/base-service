@@ -20,7 +20,7 @@ export class AppService {
   getHealth(): any {
     return new ResponseBuilder()
       .withCode(ResponseCodeEnum.SUCCESS)
-      .withMessage('This is warehouse-service')
+      .withMessage('This is rabbitmq-base')
       .build();
   }
 
@@ -31,7 +31,7 @@ export class AppService {
     };
     console.log('data', data);
     const result = await this.rabbitMQClientService.emit(
-      'warehouse-service.test',
+      'rabbitmq-base.test',
       data,
     );
     console.log('result', result);

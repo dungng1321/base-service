@@ -15,7 +15,7 @@ service:
   name: ${{ SERVICE_NAME }}
   port: ${{ SERVER_HTTP_PORT }}
   apiPath: ${{ API_PATH }}
-  tags: ["v1.0.1"]
+  tags: ['v1.0.1']
   healthCheck:
     timeout: 10s
     interval: 1s
@@ -28,5 +28,5 @@ config:
 loadbalance:
   rule: RandomRule
   services:
-    - name: warehouse-service
+    - name: rabbitmq-base
       rule: RoundRobinRule

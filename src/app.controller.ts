@@ -16,7 +16,6 @@ export class AppController {
     private readonly appService: AppService,
     private readonly natsClientService: NatsClientService,
     private readonly tcpClientService: TcpClientService,
-   
   ) {}
 
   @Get('ping')
@@ -32,7 +31,7 @@ export class AppController {
   @MessagePattern(`${NATS_AUTH}.ping`)
   pingServer(@Body() body: any) {
     return new ResponseBuilder()
-      .withData({ msg: 'warehouse-service: pong', data: body })
+      .withData({ msg: 'rabbitmq-base: pong', data: body })
       .build();
   }
 

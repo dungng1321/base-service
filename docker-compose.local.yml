@@ -1,9 +1,9 @@
 version: '3.8'
 
 services:
-  warehouse-service:
-    container_name: local-warehouse-service
-    image: warehouse-service
+  rabbitmq-base:
+    container_name: local-rabbitmq-base
+    image: rabbitmq-base
     build:
       context: .
       dockerfile: Dockerfile

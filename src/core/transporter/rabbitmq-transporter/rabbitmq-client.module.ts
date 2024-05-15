@@ -17,16 +17,16 @@ import { RabbitConfig } from '@config/rabbitmq.config';
             transport: Transport.RMQ,
             urls: config.urls,
             // queue: 'warehouse_service_queue',
-            queue: "",
+            queue: '',
             exchange: config.exchange,
             exchangeType: 'topic',
-            routingKey: 'warehouse-service.*',
+            routingKey: 'rabbitmq-base.*',
             queueOptions: {
               durable: true,
             },
           },
         });
-      }
+      },
     },
     RabbitMQClientService,
   ],

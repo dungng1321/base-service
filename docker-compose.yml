@@ -2,9 +2,9 @@
 version: '3.8'
 # all the containers have to declare inside services
 services:
-  warehouse-service:
-    container_name: warehouse-service
-    image: warehouse-service
+  rabbitmq-base:
+    container_name: rabbitmq-base
+    image: rabbitmq-base
     env_file:
       - .env
     build:
@@ -20,13 +20,13 @@ services:
       - /app/node_modules
     restart: unless-stopped
   warehouse-migration:
-    image: warehouse-service
+    image: rabbitmq-base
     env_file:
       - .env
     command: npm run migrate:run
     networks:
       - taxnet-net
-   
+
 networks:
   taxnet-net:
     name: ${TAXNET_NET_NAME}

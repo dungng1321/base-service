@@ -2,7 +2,7 @@
 version: '3.8'
 
 services:
-  warehouse-service:
+  rabbitmq-base:
     build:
       context: .
       target: development

@@ -4,7 +4,7 @@ export const GlobalConfig = registerAs('global', () => ({
   tcpServers: {
     userService: {
       port: Number(process.env.USER_SERVICE_PORT) || 3000,
-      host: process.env.USER_SERVICE_HOST || 'warehouse-service',
+      host: process.env.USER_SERVICE_HOST || 'rabbitmq-base',
     },
   },
 }));
@@ -33,7 +33,7 @@ export class ConfigService {
     this.envConfig.warehouseService = {
       options: {
         port: process.env.WAREHOUSE_SERVICE_PORT || 3000,
-        host: process.env.WAREHOUSE_SERVICE_HOST || 'warehouse-service',
+        host: process.env.WAREHOUSE_SERVICE_HOST || 'rabbitmq-base',
       },
       transport: Transport.TCP,
     };

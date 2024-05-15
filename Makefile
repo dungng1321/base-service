@@ -1,5 +1,5 @@
 build:
-	docker build -t "warehouse-service" .
+	docker build -t "rabbitmq-base" .
 
 up:
 	docker compose -f docker-compose.local.yml up -d

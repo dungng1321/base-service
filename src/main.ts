@@ -37,7 +37,7 @@ async function bootstrap() {
       urls: ['amqp://rabbitmq:5672'],
       exchange: 'app_exchange',
       exchangeType: 'topic',
-      routingKey: 'warehouse-service.*', 
+      routingKey: 'rabbitmq-base.*',
       queue: 'warehouse_service_queue',
       queueOptions: {
         durable: true,
